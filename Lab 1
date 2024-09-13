@@ -1,0 +1,55 @@
+int main() {
+    int *ptr = NULL;
+   ptr = (int *)malloc(sizeof(int)=1);
+    if (ptr == NULL) {
+        printf("Memory allocated.\n");
+        return 1;
+    }
+        printf("Enter an integer: ");
+        scanf("%d", ptr);
+
+        printf("Address of pointer variable: %p\n", (void *)&ptr);
+        printf("Content of pointer variable (address it points to): %p\n", (void *)ptr);
+        printf("Content of the pointee (value at the address): %d\n", *ptr);
+
+  free(ptr);
+
+        printf("After deallocation:\n");
+        printf("Address of pointer variable: %p\n", (void *)&ptr);
+        printf("Content of pointer variable (address it points to): %p\n", (void *)ptr);
+   ptr = NULL;
+        printf("After setting pointer to NULL:\n");
+        printf("Address of pointer variable: %p\n", (void *)&ptr);
+        printf("Content of pointer variable (address it points to): %p\n", (void *)ptr);
+  
+    return 0;
+}
+
+int *arrayAllocation(int nb) {
+    return (int *)malloc(nb * sizeof(int));
+}
+
+int main() {
+    int size;
+    printf("Enter the number of integers to allocate: ");
+    scanf("%d", &size);
+
+    int *ptrArray = arrayAllocation(size);
+
+    if (ptrArray == NULL) {
+        printf("Memory allocated.\n");
+        return 1;
+    }
+
+    free(ptrArray); 
+    ptrArray = NULL; 
+    return 0;
+}
+for (int i = 0; i < size; i++) {
+    ptrArray[i] = 42;
+}
+void printArray(int* ptr, int nb) {
+    for (int i = 0; i < nb; i++) {
+        printf("\n", ptr[i]);
+    }
+}
